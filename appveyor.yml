@@ -13,10 +13,10 @@ assembly_info:
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
 build:
-  project: NginxService/NginxService.sln
+  project: NginxService.sln
   verbosity: minimal
 artifacts:
-- path: NginxService\NginxService\bin\$(configuration)
+- path: NginxService\bin\$(configuration)
   name: NginxService
   type: zip
 notifications:
