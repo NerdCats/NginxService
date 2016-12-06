@@ -1,0 +1,28 @@
+version: 1.0.0.{build}
+pull_requests:
+  do_not_increment_build_number: true
+branches:
+  only:
+  - master
+configuration: Release
+clone_depth: 10
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+build:
+  project: NginxService/NginxService.sln
+  verbosity: minimal
+artifacts:
+- path: NginxService\NginxService\bin\$(configuration)
+  name: NginxService
+  type: zip
+notifications:
+- provider: Slack
+  incoming_webhook: https://hooks.slack.com/services/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
+  channel: '#builds'
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: true
