@@ -19,6 +19,11 @@ artifacts:
 - path: NginxService\bin\$(configuration)
   name: NginxService
   type: zip
+deploy:
+- provider: Environment
+  name: TaskCatDev
+  on:
+    branch: master
 notifications:
 - provider: Slack
   incoming_webhook: https://hooks.slack.com/services/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
