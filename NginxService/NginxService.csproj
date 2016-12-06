@@ -61,4 +61,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(SolutionDir)nginx\* $(TargetDir)  /E /i</PostBuildEvent>
+  </PropertyGroup>
 </Project>
